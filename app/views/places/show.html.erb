@@ -2,6 +2,25 @@
 
 <h1><%= @place["name"] %></h1>
 
+<ul>
+  <% if @posts %>
+    <% for post in @posts %>
+    <li>
+      <strong><%= post["title"] %><br></strong>
+      <%= post["posted_on"] %><br>
+      <%= post["description"] %>
+      <br><br> <!-- Add two <br> tags to create a space between posts -->
+    </li>
+    <% end %>
+  <% else %>
+    <li>No posts found.</li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
+</p>
+
 <p>
   <a href="/places">Back to All Places</a>
 </p>
